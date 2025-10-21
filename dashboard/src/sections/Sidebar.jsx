@@ -47,22 +47,26 @@ const Sidebar = () => {
     };
     handleResize();
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-
-
-
-
   return (
-    <div>
-      <h1>side bar</h1>
-    </div>
+
+    <motion.section
+    animation = {isExpanded ? "expended" : "nonExpanded"}
+    variants={variants}
+
+    className={'w-1/5 bg-gray-950 h-screen flex flex-col justify-between items-center gap-10 relative' + (isExpanded ? 'py-8 px-6' : 'px-8 py-6')}
+    
+    >
+
+
+    </motion.section>
+
   );
 };
 
