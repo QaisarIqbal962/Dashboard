@@ -52,15 +52,15 @@ const Sidebar = () => {
               DEBUG <span className="italic text-yellow-500">Entity</span>
             </h1>
           </div>
-        // ) : (
-        //   <div className="flex justify-center items-center">
-        //     <h1 className="text-red-600 font-bold text-3xl">D</h1>
-        //     <span className="italic text-yellow-500 text-3xl">E</span>
-        //     <div>
+        ) : (
+          <div className="flex justify-center items-center">
+            <h1 className="text-red-600 font-bold text-3xl">D</h1>
+            <span className="italic text-yellow-500 text-3xl">E</span>
+            <div>
             
-        //     </div>
-        //   </div>
-        // )}
+            </div>
+          </div>
+        )}
 
         <div
           id="navLinks-box"
