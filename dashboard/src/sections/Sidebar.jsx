@@ -63,10 +63,9 @@ const Sidebar = () => {
         )}
 
         <div
-          // id="navLinks-box"
-          // className="flex flex-col justify-center items-start gap-5 w-full mt-5"
           id="navLinks-box"
           className="flex flex-col justify-center items-start gap-5 w-full mt-5"
+         
 
         >
           {navItems.map((item, index) => (
