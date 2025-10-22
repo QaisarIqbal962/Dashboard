@@ -39,7 +39,7 @@ const Sidebar = () => {
 
   return (
     <motion.section
-      animate={isExpanded ? "expanded" : "nonExpanded"}
+      animate={isExpanded ? "expanded" : nonExpanded}
       variants={variants}
       className={`h-screen flex flex-col justify-between items-center bg-gray-950 gap-10 
         ${isExpanded ? "py-8 px-6" : "px-8 py-6"}`}
@@ -63,8 +63,11 @@ const Sidebar = () => {
         )}
 
         <div
+          // id="navLinks-box"
+          // className="flex flex-col justify-center items-start gap-5 w-full mt-5"
           id="navLinks-box"
           className="flex flex-col justify-center items-start gap-5 w-full mt-5"
+
         >
           {navItems.map((item, index) => (
             <div
