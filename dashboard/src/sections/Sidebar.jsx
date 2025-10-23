@@ -39,7 +39,7 @@ const Sidebar = () => {
 
   return (
     <motion.section
-      animate={isExpanded ? "expanded" : nonExpanded}
+      animate={isExpanded ? "expanded" : "nonExpanded"}
       variants={variants}
       className={`h-screen flex flex-col justify-between items-center bg-gray-950 gap-10 
         ${isExpanded ? "py-8 px-6" : "px-8 py-6"}`}
@@ -56,17 +56,13 @@ const Sidebar = () => {
           <div className="flex justify-center items-center">
             <h1 className="text-red-600 font-bold text-3xl">D</h1>
             <span className="italic text-yellow-500 text-3xl">E</span>
-            <div>
-            
-            </div>
+            <div></div>
           </div>
         )}
 
         <div
           id="navLinks-box"
           className="flex flex-col justify-center items-start gap-5 w-full mt-5"
-         
-
         >
           {navItems.map((item, index) => (
             <div
@@ -98,8 +94,13 @@ const Sidebar = () => {
         </div>
       </div>
 
-          <div></div>
-
+      <div
+        id="expended-icon"
+        className="bg-yellow-500 text-black p-2 rounded-full cursor-pointer absolute left-4 bottom-20 md:bottom-40 md:flex hidden"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        <FaArrowRight />
+      </div>
     </motion.section>
   );
 };
