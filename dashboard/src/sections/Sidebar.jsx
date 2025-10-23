@@ -41,10 +41,11 @@ const Sidebar = () => {
     <motion.section
       animate={isExpanded ? "expanded" : "nonExpanded"}
       variants={variants}
-      className={`h-screen flex flex-col justify-between items-center bg-gray-950 gap-10 
-        ${isExpanded ? "py-8 px-6" : "px-8 py-6"}`}
+      transition={{ duration: 0.4 }}
+      className={`relative h-screen flex flex-col justify-between items-center bg-gray-950 gap-10 
+        ${isExpanded ? "py-8 px-6" : "px-4 py-6"}`}
     >
-      {/* Logo Section */}
+      {/* Logo + Nav Section */}
       <div className="flex flex-col justify-center items-center gap-8">
         {isExpanded ? (
           <div id="logo-box">
@@ -56,10 +57,10 @@ const Sidebar = () => {
           <div className="flex justify-center items-center">
             <h1 className="text-red-600 font-bold text-3xl">D</h1>
             <span className="italic text-yellow-500 text-3xl">E</span>
-            <div></div>
           </div>
         )}
 
+        {/* Nav Items */}
         <div
           id="navLinks-box"
           className="flex flex-col justify-center items-start gap-5 w-full mt-5"
@@ -75,7 +76,7 @@ const Sidebar = () => {
                   ? "bg-yellow-500 text-black"
                   : "text-white"
               } 
-              ${isExpanded ? "py-2" : "p-2"}`}
+              ${isExpanded ? "py-2 px-3" : "p-2"}`}
             >
               <div
                 className={`bg-yellow-300 text-black p-2 rounded-full flex justify-center items-center transition-all duration-300 
@@ -85,7 +86,9 @@ const Sidebar = () => {
               </div>
 
               <span
-                className={`ml-4 text-lg ${isExpanded ? "flex" : "hidden"}`}
+                className={`ml-4 text-lg font-medium ${
+                  isExpanded ? "flex" : "hidden"
+                }`}
               >
                 {item.name}
               </span>
@@ -94,12 +97,36 @@ const Sidebar = () => {
         </div>
       </div>
 
+      {/* Expand/Collapse Button — moved above logout box */}
       <div
         id="expended-icon"
-        className="bg-yellow-500 text-black p-2 rounded-full cursor-pointer absolute left-4 bottom-20 md:bottom-40 md:flex hidden"
+        className="absolute -right-3 bottom-30 bg-yellow-500 text-black p-2 rounded-full cursor-pointer shadow-lg"
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <FaArrowRight />
+        <motion.div
+          animate={{ rotate: isExpanded ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <FaArrowRight />
+        </motion.div>
+      </div>
+
+      {/* Logout Section */}
+      <div
+        id="logout-box"
+        className="w-full flex flex-col justify-start items-center gap-4 cursor-pointer mb-4"
+      >
+        <div className="bg-slate-700 w-full h-[0.5px]"></div>
+        <div className="flex justify-center items-center gap-2">
+          <MdLogout className="text-white h-6 w-6" />
+          <span
+            className={
+              "text-white text-lg " + (isExpanded ? "flex" : "hidden")
+            }
+          >
+            Logout
+          </span>
+        </div>
       </div>
     </motion.section>
   );
