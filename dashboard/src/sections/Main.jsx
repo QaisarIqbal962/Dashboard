@@ -144,16 +144,77 @@ const Main = () => {
             </div>
           </div>
 
-          <div id="bottom" className="bg-black w-full h-full p-6 rounded-xl flex flex-col justify-center items-center gap-8">
-            <div className="flex md:flex-row flex-col justify-between items-center w-full gap-2" >
+          <div
+            id="bottom"
+            className="bg-black w-full h-full p-6 rounded-xl flex flex-col justify-center items-center gap-8"
+          >
+            <div className="flex md:flex-row flex-col justify-between items-center w-full gap-2">
               <h1 className="text-white text-md">Facebook Campaign</h1>
-              <button className="bg-green-600 text-white px-6 py-1 rounded-xl cursor-pointer text-md">Active</button>
+              <button className="bg-green-600 text-white px-6 py-1 rounded-xl cursor-pointer text-md">
+                Active
+              </button>
             </div>
-            <div  className="flex justify-between items-center w-full h-fit flex-col md:flex-row gap-4">
-            <div className="flex flex-col justify-center items-start gap-1">
-              <h1 className="text-white text-2xl font-bold">1,129</h1>
-              <p className="text-slate-200 text-sm">Followers Today</p>
+
+            <div className="flex justify-between items-center w-full h-fit flex-col md:flex-row gap-4">
+              <div className="flex flex-col justify-center items-start gap-1">
+                <h1 className="text-white text-2xl font-bold">1,129</h1>
+                <p className="text-slate-200 text-sm">Followers Today</p>
+              </div>
+
+              <div className="flex flex-col justify-center items-start gap-1">
+                <h1 className="text-white text-2xl font-bold">50,000</h1>
+                <p className="text-slate-200 text-sm">Followers Goals</p>
+              </div>
+
+              <div className="flex flex-col justify-center items-start gap-1">
+                <h1 className="text-white text-2xl font-bold">10,000</h1>
+                <p className="text-slate-200 text-sm">Followers Online</p>
+              </div>
             </div>
+
+            <div className="flex md:flex-row flex-col justify-between items-center w-full">
+              <div className="flex -space-x-4 rtl:space-x-reverse w-full md:justify-start justify-center items-start">
+                <img
+                  src={client1}
+                  alt="client image"
+                  className="w-10 h-10 border-2 border-white rounded-full"
+                />
+                <img
+                  src={client2}
+                  alt="client image"
+                  className="w-10 h-10 border-2 border-white rounded-full"
+                />
+                <img
+                  src={client3}
+                  alt="client image"
+                  className="w-10 h-10 border-2 border-white rounded-full"
+                />
+                <img
+                  src={client2}
+                  alt="client image"
+                  className="w-10 h-10 border-2 border-white rounded-full"
+                />
+                <img
+                  src={client1}
+                  alt="client image"
+                  className="w-10 h-10 border-2 border-white rounded-full"
+                />
+                <img
+                  src={client3}
+                  alt="client image"
+                  className="w-10 h-10 border-2 border-white rounded-full"
+                />
+                <img
+                  src={client1}
+                  alt="client image"
+                  className="w-10 h-10 border-2 border-white rounded-full"
+                />
+              </div>
+
+              <div className="flex flex-col justify-center items-center gap-1">
+                <h1 className="text-white text-xl font-bold">+7,294</h1>
+                <p className=" text-slate-200 text-sm"> All Time</p>
+              </div>
             </div>
           </div>
         </div>
