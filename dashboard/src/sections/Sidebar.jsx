@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { MdDashboard, MdOutlineMessage, MdLogout } from "react-icons/md";
 import { SiSimpleanalytics } from "react-icons/si";
-import { LiaToolsSolid } from "react-icons/lia";
 import { IoSettingsSharp } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -42,21 +41,23 @@ const Sidebar = () => {
       animate={isExpanded ? "expanded" : "nonExpanded"}
       variants={variants}
       transition={{ duration: 0.4 }}
-      className={`relative h-screen flex flex-col justify-between items-center bg-gray-950 gap-10 
+      className={`relative h-screen flex flex-col justify-between items-center 
+        bg-gradient-to-b from-gray-900 via-gray-950 to-black
+        shadow-xl gap-10 border-r border-gray-800
         ${isExpanded ? "py-8 px-6" : "px-4 py-6"}`}
     >
       {/* Logo + Nav Section */}
       <div className="flex flex-col justify-center items-center gap-8">
         {isExpanded ? (
           <div id="logo-box">
-            <h1 className="text-red-600 font-bold text-3xl">
-              DEBUG <span className="italic text-yellow-500">Entity</span>
+            <h1 className="text-teal-400 font-bold text-3xl tracking-wide">
+              DEBUG <span className="italic text-gray-300">Entity</span>
             </h1>
           </div>
         ) : (
           <div className="flex justify-center items-center">
-            <h1 className="text-red-600 font-bold text-3xl">D</h1>
-            <span className="italic text-yellow-500 text-3xl">E</span>
+            <h1 className="text-teal-400 font-bold text-3xl">D</h1>
+            <span className="italic text-gray-300 text-3xl">E</span>
           </div>
         )}
 
@@ -68,19 +69,27 @@ const Sidebar = () => {
           {navItems.map((item, index) => (
             <div
               key={item.name}
-              id="link-box"
               onClick={() => setActiveNavIndex(index)}
-              className={`flex items-center w-full cursor-pointer rounded-xl overflow-hidden transition-all duration-300
+              className={`flex items-center w-full cursor-pointer rounded-xl overflow-hidden transition-all duration-300 relative group
               ${
                 activeNavIndex === index
-                  ? "bg-yellow-500 text-black"
-                  : "text-white"
+                  ? "bg-teal-600/20 text-teal-400"
+                  : "text-gray-300 hover:text-teal-300 hover:bg-gray-800/50"
               } 
               ${isExpanded ? "py-2 px-3" : "p-2"}`}
             >
+              {/* Left Accent Line */}
+              {activeNavIndex === index && (
+                <span className="absolute left-0 top-0 w-[3px] h-full bg-teal-400 rounded-tr-md rounded-br-md shadow-[0_0_10px_#2dd4bf]"></span>
+              )}
+
               <div
-                className={`bg-yellow-300 text-black p-2 rounded-full flex justify-center items-center transition-all duration-300 
-                ${activeNavIndex === index ? "ml-0" : "ml-2"}`}
+                className={`p-2 rounded-full flex justify-center items-center transition-all duration-300 
+                ${
+                  activeNavIndex === index
+                    ? "bg-teal-500/30 text-teal-300"
+                    : "text-gray-400 group-hover:text-teal-300"
+                }`}
               >
                 <item.icon className="md:w-6 w-4 h-4 md:h-6" />
               </div>
@@ -97,10 +106,10 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {/* Expand/Collapse Button — moved above logout box */}
+      {/* Expand/Collapse Button */}
       <div
         id="expended-icon"
-        className="absolute -right-3 bottom-30 bg-yellow-500 text-black p-2 rounded-full cursor-pointer shadow-lg"
+        className="absolute -right-3 bottom-28 bg-teal-500 text-black p-2 rounded-full cursor-pointer shadow-lg hover:bg-teal-400 transition-all duration-300"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <motion.div
@@ -116,12 +125,12 @@ const Sidebar = () => {
         id="logout-box"
         className="w-full flex flex-col justify-start items-center gap-4 cursor-pointer mb-4"
       >
-        <div className="bg-slate-700 w-full h-[0.5px]"></div>
-        <div className="flex justify-center items-center gap-2">
-          <MdLogout className="text-white h-6 w-6" />
+        <div className="bg-gray-700 w-full h-[0.5px]"></div>
+        <div className="flex justify-center items-center gap-2 hover:text-teal-300 transition-all duration-300">
+          <MdLogout className="text-gray-400 h-6 w-6" />
           <span
             className={
-              "text-white text-lg " + (isExpanded ? "flex" : "hidden")
+              "text-gray-300 text-lg " + (isExpanded ? "flex" : "hidden")
             }
           >
             Logout

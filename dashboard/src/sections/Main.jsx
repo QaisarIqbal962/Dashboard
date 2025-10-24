@@ -7,38 +7,116 @@ import client1 from "../assets/images/client1.jpg";
 import client2 from "../assets/images/client2.jpg";
 import client3 from "../assets/images/client3.jpg";
 import client4 from "../assets/images/client4.jpg";
+import OurCharts from "../components/OurCharts";
+
+
 
 const Main = () => {
-  return ( 
+  return (
     <section className="w-4/5 grow bg-white h-screen overflow-y-auto flex flex-col justify-start items-center gap-2 p-4">
       <Header />
 
       {/* main section start here */}
 
-      <div id="main-section"
-          className="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full h-screen"
+      <div
+        id="main-section"
+        className="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full h-screen"
       >
-
-        <div id="left" className="col-span-2 p-2 gap-3 flex flex-col justify-between items-center h-full">
-
+        <div
+          id="left"
+          className="col-span-2 p-2 gap-3 flex flex-col justify-between items-center h-full"
+        >
           {/* three grid layout */}
           <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full mb-4">
-            <div className="w-full flex flex-col justify-center items-center bg-blue-200 p-5 rounded-xl gap-5 transition-transform transform hover: rotate-[-5deg] hover:scale-105 cursor-pointer">
-
-
+            
+            {/* 🟦 Facebook Card */}
+            <div
+              className="w-full flex flex-col justify-center items-center bg-[#1877F2]/20 p-5 rounded-xl gap-5 
+              transition-all duration-500 ease-in-out transform hover:scale-105 hover:rotate-[-5deg] hover:shadow-2xl hover:shadow-[#1877F2]/50 cursor-pointer"
+            >
               <div className="w-full flex justify-between items-center">
-                <h1 className="text-md text-black font-semibold">Facebook</h1>
+                <h1 className="text-md text-[#1877F2] font-semibold">Facebook</h1>
                 <h1 className="text-green-600 font-semibold">+21.75%</h1>
+              </div>
+              <div className="w-full flex justify-between items-center">
+                <div className="flex flex-col justify-center items-start gap-1">
+                  <h1 className="text-3xl text-black font-semibold">10,328</h1>
+                  <p className="text-slate-700">Followers</p>
+                </div>
+
+                <div className="bg-[#1877F2] hover:bg-[#0e5dc1] cursor-pointer text-white p-3 rounded-full">
+                  <FaFacebook className="w-[30px] h-[30px]" />
+                </div>
+              </div>
+            </div>
+
+            {/* 🟪 Instagram Card */}
+            <div
+              className="w-full flex flex-col justify-center items-center bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] p-5 rounded-xl gap-5 
+              transition-all duration-500 ease-in-out transform hover:scale-105 hover:rotate-[-5deg] hover:shadow-2xl hover:shadow-[#E4405F]/50 cursor-pointer"
+            >
+              <div className="w-full flex justify-between items-center">
+                <h1 className="text-md text-white font-semibold">Instagram</h1>
+                <h1 className="text-white font-semibold">+21.75%</h1>
+              </div>
+              <div className="w-full flex justify-between items-center">
+                <div className="flex flex-col justify-center items-start gap-1 text-white">
+                  <h1 className="text-3xl font-semibold">23,328</h1>
+                  <p className="">Followers</p>
+                </div>
+
+                <div className="bg-white/20 hover:bg-white/30 cursor-pointer text-white p-3 rounded-full">
+                  <FaInstagram className="w-[30px] h-[30px]" />
+                </div>
+              </div>
+            </div>
+
+            {/* 🩵 Twitter Card */}
+            <div
+              className="w-full flex flex-col justify-center items-center bg-[#1DA1F2]/20 p-5 rounded-xl gap-5 
+              transition-all duration-500 ease-in-out transform hover:scale-105 hover:rotate-[-5deg] hover:shadow-2xl hover:shadow-[#1DA1F2]/50 cursor-pointer"
+            >
+              <div className="w-full flex justify-between items-center">
+                <h1 className="text-md text-[#1DA1F2] font-semibold">Twitter</h1>
+                <h1 className="text-green-600 font-semibold">+21.75%</h1>
+              </div>
+              <div className="w-full flex justify-between items-center">
+                <div className="flex flex-col justify-center items-start gap-1">
+                  <h1 className="text-3xl text-black font-semibold">34,328</h1>
+                  <p className="text-slate-700">Followers</p>
+                </div>
+
+                <div className="bg-[#1DA1F2] hover:bg-[#0c8cd8] cursor-pointer text-white p-3 rounded-full">
+                  <FiTwitter className="w-[30px] h-[30px]" />
+                </div>
               </div>
             </div>
 
           </div>
-
+          {/* end of three grid layout */}
+          <OurCharts/>
+        
         </div>
 
+    {/* left section end here */}
+
+    {/* right section start from here  */}
+
+        <div id="right" className="p-2 flex flex-col justify-center items-center gap-4 h-full">
+
+          <div id="top" className="bg-slate-100 p-7 w-full rounded-xl flex flex-col justify-center items-center gap-6 h-fit">
+            <div id="image-box" className="w-full flex flex-col justify-center items-center gap-4">
+              <img src={client} alt="client-image" className="rounded-full w-[100px] h-[100px]"  />
+              <div className="flex flex-col justify-center items-center">
+                <h1 className="text-black font-bold text-2xl">Jack Anderson</h1>
+                <p className="text-slate-700 text-lg">@jack_anderson</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </div>
-
-
     </section>
   );
 };
