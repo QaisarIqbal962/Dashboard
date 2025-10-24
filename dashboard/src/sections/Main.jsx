@@ -9,8 +9,6 @@ import client3 from "../assets/images/client3.jpg";
 import client4 from "../assets/images/client4.jpg";
 import OurCharts from "../components/OurCharts";
 
-
-
 const Main = () => {
   return (
     <section className="w-4/5 grow bg-white h-screen overflow-y-auto flex flex-col justify-start items-center gap-2 p-4">
@@ -28,14 +26,15 @@ const Main = () => {
         >
           {/* three grid layout */}
           <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full mb-4">
-            
             {/* 🟦 Facebook Card */}
             <div
               className="w-full flex flex-col justify-center items-center bg-[#1877F2]/20 p-5 rounded-xl gap-5 
               transition-all duration-500 ease-in-out transform hover:scale-105 hover:rotate-[-5deg] hover:shadow-2xl hover:shadow-[#1877F2]/50 cursor-pointer"
             >
               <div className="w-full flex justify-between items-center">
-                <h1 className="text-md text-[#1877F2] font-semibold">Facebook</h1>
+                <h1 className="text-md text-[#1877F2] font-semibold">
+                  Facebook
+                </h1>
                 <h1 className="text-green-600 font-semibold">+21.75%</h1>
               </div>
               <div className="w-full flex justify-between items-center">
@@ -77,7 +76,9 @@ const Main = () => {
               transition-all duration-500 ease-in-out transform hover:scale-105 hover:rotate-[-5deg] hover:shadow-2xl hover:shadow-[#1DA1F2]/50 cursor-pointer"
             >
               <div className="w-full flex justify-between items-center">
-                <h1 className="text-md text-[#1DA1F2] font-semibold">Twitter</h1>
+                <h1 className="text-md text-[#1DA1F2] font-semibold">
+                  Twitter
+                </h1>
                 <h1 className="text-green-600 font-semibold">+21.75%</h1>
               </div>
               <div className="w-full flex justify-between items-center">
@@ -91,30 +92,70 @@ const Main = () => {
                 </div>
               </div>
             </div>
-
           </div>
           {/* end of three grid layout */}
-          <OurCharts/>
-        
+          <OurCharts />
         </div>
 
-    {/* left section end here */}
+        {/* left section end here */}
 
-    {/* right section start from here  */}
+        {/* right section start from here  */}
 
-        <div id="right" className="p-2 flex flex-col justify-center items-center gap-4 h-full">
-
-          <div id="top" className="bg-slate-100 p-7 w-full rounded-xl flex flex-col justify-center items-center gap-6 h-fit">
-            <div id="image-box" className="w-full flex flex-col justify-center items-center gap-4">
-              <img src={client} alt="client-image" className="rounded-full w-[100px] h-[100px]"  />
+        <div
+          id="right"
+          className="p-2 flex flex-col justify-center items-center gap-4 h-full"
+        >
+          <div
+            id="top"
+            className="bg-slate-100 p-7 w-full rounded-xl flex flex-col justify-center items-center gap-6 h-fit"
+          >
+            <div
+              id="image-box"
+              className="w-full flex flex-col justify-center items-center gap-4"
+            >
+              <img
+                src={client}
+                alt="client-image"
+                className="rounded-full w-[100px] h-[100px]"
+              />
               <div className="flex flex-col justify-center items-center">
                 <h1 className="text-black font-bold text-2xl">Jack Anderson</h1>
                 <p className="text-slate-700 text-lg">@jack_anderson</p>
               </div>
+            </div>
+            <div
+              id="followers-info"
+              className="flex justify-between items-center gap-8 w-full"
+            >
+              <div className="flex flex-col justify-center items-start">
+                <h1 className="text-2xl text-black font-semibold">193</h1>
+                <p>Posts </p>
+              </div>
 
+              <div className="flex flex-col justify-center items-start">
+                <h1 className="text-2xl text-black font-semibold">17,536</h1>
+                <p>Followers </p>
+              </div>
+
+              <div className="flex flex-col justify-center items-start">
+                <h1 className="text-2xl text-black font-semibold">274</h1>
+                <p>Following </p>
+              </div>
             </div>
           </div>
 
+          <div id="bottom" className="bg-black w-full h-full p-6 rounded-xl flex flex-col justify-center items-center gap-8">
+            <div className="flex md:flex-row flex-col justify-between items-center w-full gap-2" >
+              <h1 className="text-white text-md">Facebook Campaign</h1>
+              <button className="bg-green-600 text-white px-6 py-1 rounded-xl cursor-pointer text-md">Active</button>
+            </div>
+            <div  className="flex justify-between items-center w-full h-fit flex-col md:flex-row gap-4">
+            <div className="flex flex-col justify-center items-start gap-1">
+              <h1 className="text-white text-2xl font-bold">1,129</h1>
+              <p className="text-slate-200 text-sm">Followers Today</p>
+            </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
