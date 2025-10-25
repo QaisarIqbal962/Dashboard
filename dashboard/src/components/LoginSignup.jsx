@@ -169,37 +169,7 @@ const LoginSignup = () => {
               </div>
 
               {/* Authentication form */}
-              <form onSubmit={handleSubmit}>
-                {!isLogin && (
-                  <div className="grid grid-cols-2 gap-4 mt-6">
-                    <div>
-                      <label className="block text-gray-700 mb-2">
-                        First Name
-                      </label>
-                      <input
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded outline-none placeholder:text-sm placeholder:text-gray-600 "
-                        placeholder="Enter First Name"
-                        type="text"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-700 mb-2">
-                        Last Name
-                      </label>
-                      <input
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded outline-none placeholder:text-sm placeholder:text-gray-600 "
-                        placeholder="Enter Last Name"
-                        type="text"
-                      />
-                    </div>
-                  </div>
-                )}
+            
 
                 {/* Email */}
                 <div className="mb-4 mt-6 ">
