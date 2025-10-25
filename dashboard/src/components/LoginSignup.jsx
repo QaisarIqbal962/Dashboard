@@ -48,7 +48,7 @@ const LoginSignup = () => {
           icon: "warning",
           title: "Missing Fields",
           text: "Please fill in all required fields!",
-          confirmButtonColor: "#f59e0b",
+          confirmButtonColor: "#14b8a6", // teal-500
         });
         return;
       }
@@ -58,7 +58,7 @@ const LoginSignup = () => {
           icon: "error",
           title: "Password Mismatch",
           text: "Passwords do not match!",
-          confirmButtonColor: "#f59e0b",
+          confirmButtonColor: "#14b8a6", // teal-500
         });
         return;
       }
@@ -100,7 +100,7 @@ const LoginSignup = () => {
           icon: "info",
           title: "No Account Found",
           text: "Please sign up before logging in!",
-          confirmButtonColor: "#f59e0b",
+          confirmButtonColor: "#14b8a6", // teal-500
         });
         return;
       }
@@ -116,7 +116,7 @@ const LoginSignup = () => {
           icon: "success",
           title: `Welcome, ${storedUser.firstName}!`,
           text: "You have successfully logged in.",
-          confirmButtonColor: "#f59e0b",
+          confirmButtonColor: "#14b8a6", // teal-500
           timer: 1200,
           showConfirmButton: false,
         });
@@ -129,7 +129,7 @@ const LoginSignup = () => {
           icon: "error",
           title: "Invalid Credentials",
           text: "Incorrect email or password!",
-          confirmButtonColor: "#f59e0b",
+          confirmButtonColor: "#14b8a6", // teal-500
         });
       }
     }
@@ -277,7 +277,7 @@ const LoginSignup = () => {
                     </div>
                     <a
                       href="# "
-                      className="text-amber-600 text-sm font-semibold hover:underline"
+                      className="text-teal-500 hover:text-teal-600 text-sm font-semibold hover:underline transition-colors duration-300"
                     >
                       Forget Password ?
                     </a>
@@ -285,7 +285,7 @@ const LoginSignup = () => {
                 )}
 
                 <div className="mt-6 mb-2">
-                  <button className="w-full bg-amber-600 text-white font-bold rounded cursor-pointer py-2">
+                  <button className="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold rounded cursor-pointer py-2 transition-colors duration-300">
                     {isLogin ? "Login" : "Sign Up"}
                   </button>
                 </div>
@@ -295,7 +295,7 @@ const LoginSignup = () => {
                     : "If you already have an account"}
                   <span
                     onClick={() => setIsLogin(!isLogin)}
-                    className="text-amber-600 hover:underline ml-2 cursor-pointer"
+                    className="text-teal-500 hover:text-teal-600 hover:underline ml-2 cursor-pointer transition-colors duration-300"
                   >
                     {isLogin ? "Sign Up" : "Login"}
                   </span>
