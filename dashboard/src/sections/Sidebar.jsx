@@ -4,6 +4,7 @@ import { SiSimpleanalytics } from "react-icons/si";
 import { IoSettingsSharp } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const variants = {
   expanded: { width: "20%" },
@@ -121,12 +122,13 @@ const Sidebar = () => {
       </div>
 
       {/* Logout Section */}
-      <div
+      <Link
+        to="/logout"
         id="logout-box"
-        className="w-full flex flex-col justify-start items-center gap-4 cursor-pointer mb-4"
+        className="w-full flex flex-col justify-start items-center gap-4 mb-4"
       >
         <div className="bg-gray-700 w-full h-[0.5px]"></div>
-        <div className="flex justify-center items-center gap-2 hover:text-teal-300 transition-all duration-300">
+        <div className="flex justify-center items-center gap-2 hover:text-teal-300 transition-all duration-300 cursor-pointer">
           <MdLogout className="text-gray-400 h-6 w-6" />
           <span
             className={
@@ -136,7 +138,7 @@ const Sidebar = () => {
             Logout
           </span>
         </div>
-      </div>
+      </Link>
     </motion.section>
   );
 };
