@@ -6,7 +6,7 @@ const Logout = () => {
 
   useEffect(() => {
     localStorage.removeItem("isAuthenticated");
-    // optionally remove userData if you want full sign-out: localStorage.removeItem('userData')
+
     navigate("/auth", { replace: true });
   }, [navigate]);
 

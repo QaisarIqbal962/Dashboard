@@ -11,10 +11,10 @@ const Header = () => {
   const [userName, setUserName] = useState("User");
   const [userImage, setUserImage] = useState(client1);
 
-  // Array of available avatar images
+  
   const avatars = [client1, client2, client3, client4];
 
-  // Function to get a random avatar
+
   const getRandomAvatar = () => {
     const randomIndex = Math.floor(Math.random() * avatars.length);
     return avatars[randomIndex];
@@ -24,7 +24,7 @@ const Header = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (userData?.firstName) {
       setUserName(userData.firstName);
-      // Case-insensitive comparison for "Qaisar"
+      
       const isQaisar = userData.firstName.toLowerCase() === "qaisar";
       setUserImage(isQaisar ? QaisarImage : getRandomAvatar());
     }

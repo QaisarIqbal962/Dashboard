@@ -47,7 +47,6 @@ const Sidebar = () => {
         shadow-xl gap-10 border-r border-gray-800
         ${isExpanded ? "py-8 px-6" : "px-4 py-6"}`}
     >
-      {/* Logo + Nav Section */}
       <div className="flex flex-col justify-center items-center gap-8">
         {isExpanded ? (
           <div id="logo-box">
@@ -62,7 +61,6 @@ const Sidebar = () => {
           </div>
         )}
 
-        {/* Nav Items */}
         <div
           id="navLinks-box"
           className="flex flex-col justify-center items-start gap-5 w-full mt-5"
@@ -79,7 +77,7 @@ const Sidebar = () => {
               } 
               ${isExpanded ? "py-2 px-3" : "p-2"}`}
             >
-              {/* Left Accent Line */}
+       
               {activeNavIndex === index && (
                 <span className="absolute left-0 top-0 w-[3px] h-full bg-teal-400 rounded-tr-md rounded-br-md shadow-[0_0_10px_#2dd4bf]"></span>
               )}
@@ -107,7 +105,6 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {/* Expand/Collapse Button */}
       <div
         id="expended-icon"
         className="absolute -right-3 bottom-28 bg-teal-500 text-black p-2 rounded-full cursor-pointer shadow-lg hover:bg-teal-400 transition-all duration-300"
@@ -121,7 +118,6 @@ const Sidebar = () => {
         </motion.div>
       </div>
 
-      {/* Logout Section */}
       <Link
         to="/logout"
         id="logout-box"

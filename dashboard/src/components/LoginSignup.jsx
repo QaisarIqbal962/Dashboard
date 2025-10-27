@@ -36,7 +36,6 @@ const LoginSignup = () => {
     e.preventDefault();
 
     if (!isLogin) {
-      // ---- Signup Logic ----
       if (
         !formData.firstName ||
         !formData.lastName ||
@@ -48,7 +47,7 @@ const LoginSignup = () => {
           icon: "warning",
           title: "Missing Fields",
           text: "Please fill in all required fields!",
-          confirmButtonColor: "#14b8a6", // teal-500
+          confirmButtonColor: "#14b8a6",
         });
         return;
       }
@@ -58,12 +57,11 @@ const LoginSignup = () => {
           icon: "error",
           title: "Password Mismatch",
           text: "Passwords do not match!",
-          confirmButtonColor: "#14b8a6", // teal-500
+          confirmButtonColor: "#14b8a6",
         });
         return;
       }
 
-      // save user
       const userData = {
         firstName: formData.firstName,
         lastName: formData.lastName,
@@ -92,7 +90,6 @@ const LoginSignup = () => {
         });
       }, 2000);
     } else {
-      // ---- Login Logic ----
       const storedUser = JSON.parse(localStorage.getItem("userData"));
 
       if (!storedUser) {
@@ -100,7 +97,7 @@ const LoginSignup = () => {
           icon: "info",
           title: "No Account Found",
           text: "Please sign up before logging in!",
-          confirmButtonColor: "#14b8a6", // teal-500
+          confirmButtonColor: "#14b8a6",
         });
         return;
       }
@@ -109,14 +106,13 @@ const LoginSignup = () => {
         storedUser.email === formData.email &&
         storedUser.password === formData.password
       ) {
-        // set authenticated flag and navigate to dashboard
         localStorage.setItem("isAuthenticated", "true");
 
         Swal.fire({
           icon: "success",
           title: `Welcome, ${storedUser.firstName}!`,
           text: "You have successfully logged in.",
-          confirmButtonColor: "#14b8a6", // teal-500
+          confirmButtonColor: "#14b8a6",
           timer: 1200,
           showConfirmButton: false,
         });
@@ -129,7 +125,7 @@ const LoginSignup = () => {
           icon: "error",
           title: "Invalid Credentials",
           text: "Incorrect email or password!",
-          confirmButtonColor: "#14b8a6", // teal-500
+          confirmButtonColor: "#14b8a6",
         });
       }
     }
@@ -139,7 +135,6 @@ const LoginSignup = () => {
     <div className="flex items-center bg-white min-h-screen">
       <div className="container mx-auto px-6 py-6">
         <div className="flex flex-col lg:flex-row rounded-xl shadow-xl overflow-hidden">
-          {/* left side */}
           <div className="w-full lg:w-1/2 p-12">
             <div className="flex flex-col">
               <h3 className="text-3xl text-gray-700 mb-2 font-bold">
@@ -149,7 +144,6 @@ const LoginSignup = () => {
                 {isLogin ? "Login to your account" : "Join to your Account "}
               </p>
 
-              {/* Social buttons */}
               <div className="grid grid-cols-2 gap-6 mt-6">
                 <button className="flex items-center justify-center gap-2 py-2 border border-gray-300 rounded">
                   <img className="w-4 " src="./google.png" alt="" />
@@ -161,14 +155,12 @@ const LoginSignup = () => {
                 </button>
               </div>
 
-              {/* line */}
               <div className="flex items-center gap-4 mt-6">
                 <div className="flex-grow border-t border-gray-300"></div>
                 <span className="text-gray-700"> or </span>
                 <div className="flex-grow border-t border-gray-300"></div>
               </div>
 
-              {/* Authentication form */}
               <form onSubmit={handleSubmit}>
                 {!isLogin && (
                   <div className="grid grid-cols-2 gap-4 mt-6">
@@ -201,7 +193,6 @@ const LoginSignup = () => {
                   </div>
                 )}
 
-                {/* Email */}
                 <div className="mb-4 mt-6 ">
                   <label className="block text-gray-700 mb-2">
                     Email Address
@@ -216,7 +207,6 @@ const LoginSignup = () => {
                   />
                 </div>
 
-                {/* password */}
                 <div className="mb-4 mt-6 ">
                   <label className="block text-gray-700 mb-2">Password</label>
                   <div className="relative">
@@ -304,7 +294,6 @@ const LoginSignup = () => {
             </div>
           </div>
 
-          {/* Right side banner */}
           <div
             className="relative w-full lg:w-1/2 bg-cover bg-center flex items-center justify-center text-white rounded"
             style={{ backgroundImage: "url('./bgImage.png')" }}
