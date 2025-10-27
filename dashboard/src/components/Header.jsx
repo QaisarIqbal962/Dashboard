@@ -11,9 +11,7 @@ const Header = () => {
   const [userName, setUserName] = useState("User");
   const [userImage, setUserImage] = useState(client1);
 
-  
   const avatars = [client1, client2, client3, client4];
-
 
   const getRandomAvatar = () => {
     const randomIndex = Math.floor(Math.random() * avatars.length);
@@ -24,11 +22,12 @@ const Header = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (userData?.firstName) {
       setUserName(userData.firstName);
-      
+
       const isQaisar = userData.firstName.toLowerCase() === "qaisar";
       setUserImage(isQaisar ? QaisarImage : getRandomAvatar());
     }
   }, []);
+
   return (
     <section className="w-full bg-slate-100 lg:h-20 h-fit flex lg:flex-row justify-between items-center p-4 rounded-xl lg:gap-2 gap-4">
       <div>
