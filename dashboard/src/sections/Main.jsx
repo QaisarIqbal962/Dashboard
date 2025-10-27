@@ -1,8 +1,9 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FiTwitter } from "react-icons/fi";
-import client from "../assets/images/client.jpg";
+import QaisarImage from "../assets/images/Qaisar.jpg";
+import client from "../assets/images/client2.jpg"; // default avatar
 import client1 from "../assets/images/client1.jpg";
 import client2 from "../assets/images/client2.jpg";
 import client3 from "../assets/images/client3.jpg";
@@ -10,6 +11,31 @@ import client4 from "../assets/images/client4.jpg";
 import OurCharts from "../components/OurCharts";
 
 const Main = () => {
+  const [userName, setUserName] = useState("User");
+  const [userEmail, setUserEmail] = useState("user@example.com");
+  const [userImage, setUserImage] = useState(client);
+
+  // Array of available avatar images
+  const avatars = [client1, client2, client3, client4];
+  
+  // Function to get a random avatar
+  const getRandomAvatar = () => {
+    const randomIndex = Math.floor(Math.random() * avatars.length);
+    return avatars[randomIndex];
+  };
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (userData) {
+      const fullName = `${userData.firstName} ${userData.lastName}`;
+      setUserName(fullName);
+      setUserEmail(userData.email);
+      // Use Qaisar's image if name matches (case-insensitive), otherwise use random avatar
+      const isQaisar = userData.firstName.toLowerCase() === "qaisar";
+      setUserImage(isQaisar ? QaisarImage : getRandomAvatar());
+    }
+  }, []);
+
   return (
     <section className="w-4/5 grow bg-white h-screen overflow-y-auto flex flex-col justify-start items-center gap-2 p-4">
       <Header />
@@ -114,13 +140,13 @@ const Main = () => {
               className="w-full flex flex-col justify-center items-center gap-4"
             >
               <img
-                src={client}
-                alt="client-image"
-                className="rounded-full w-[100px] h-[100px]"
+                src={userImage}
+                alt={`${userName}'s profile`}
+                className="rounded-full w-[100px] h-[100px] object-cover"
               />
               <div className="flex flex-col justify-center items-center">
-                <h1 className="text-black font-bold text-2xl">Jack Anderson</h1>
-                <p className="text-slate-700 text-lg">@jack_anderson</p>
+                <h1 className="text-black font-bold text-2xl">{userName}</h1>
+                <p className="text-slate-700 text-lg">{userEmail}</p>
               </div>
             </div>
             <div
