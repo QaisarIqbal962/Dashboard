@@ -5,6 +5,7 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import ChatModal from "../components/ChatModal";
 
 const variants = {
   expanded: { width: "20%" },
@@ -21,6 +22,7 @@ const navItems = [
 const Sidebar = () => {
   const [activeNavIndex, setActiveNavIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(true);
+  const [chatOpen, setChatOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -65,43 +67,47 @@ const Sidebar = () => {
           id="navLinks-box"
           className="flex flex-col justify-center items-start gap-5 w-full mt-5"
         >
-          {navItems.map((item, index) => (
-            <div
-              key={item.name}
-              onClick={() => setActiveNavIndex(index)}
-              className={`flex items-center w-full cursor-pointer rounded-xl overflow-hidden transition-all duration-300 relative group
-              ${
-                activeNavIndex === index
-                  ? "bg-teal-600/20 text-teal-400"
-                  : "text-gray-300 hover:text-teal-300 hover:bg-gray-800/50"
-              } 
-              ${isExpanded ? "py-2 px-3" : "p-2"}`}
-            >
-       
-              {activeNavIndex === index && (
-                <span className="absolute left-0 top-0 w-[3px] h-full bg-teal-400 rounded-tr-md rounded-br-md shadow-[0_0_10px_#2dd4bf]"></span>
-              )}
-
+          {navItems.map((item, index) => {
+            // If Messages icon, open chat modal on click
+            const isMessages = item.name === "Messages";
+            return (
               <div
-                className={`p-2 rounded-full flex justify-center items-center transition-all duration-300 
+                key={item.name}
+                onClick={() => {
+                  setActiveNavIndex(index);
+                  if (isMessages) setChatOpen(true);
+                }}
+                className={`flex items-center w-full cursor-pointer rounded-xl overflow-hidden transition-all duration-300 relative group
                 ${
                   activeNavIndex === index
-                    ? "bg-teal-500/30 text-teal-300"
-                    : "text-gray-400 group-hover:text-teal-300"
-                }`}
+                    ? "bg-teal-600/20 text-teal-400"
+                    : "text-gray-300 hover:text-teal-300 hover:bg-gray-800/50"
+                } 
+                ${isExpanded ? "py-2 px-3" : "p-2"}`}
               >
-                <item.icon className="md:w-6 w-4 h-4 md:h-6" />
+                {activeNavIndex === index && (
+                  <span className="absolute left-0 top-0 w-[3px] h-full bg-teal-400 rounded-tr-md rounded-br-md shadow-[0_0_10px_#2dd4bf]"></span>
+                )}
+                <div
+                  className={`p-2 rounded-full flex justify-center items-center transition-all duration-300 
+                  ${
+                    activeNavIndex === index
+                      ? "bg-teal-500/30 text-teal-300"
+                      : "text-gray-400 group-hover:text-teal-300"
+                  }`}
+                >
+                  <item.icon className="md:w-6 w-4 h-4 md:h-6" />
+                </div>
+                <span
+                  className={`ml-4 text-lg font-medium ${
+                    isExpanded ? "flex" : "hidden"
+                  }`}
+                >
+                  {item.name}
+                </span>
               </div>
-
-              <span
-                className={`ml-4 text-lg font-medium ${
-                  isExpanded ? "flex" : "hidden"
-                }`}
-              >
-                {item.name}
-              </span>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -135,6 +141,8 @@ const Sidebar = () => {
           </span>
         </div>
       </Link>
+      {/* Chat Modal (slide-in) */}
+      <ChatModal isOpen={chatOpen} onClose={() => setChatOpen(false)} />
     </motion.section>
   );
 };
