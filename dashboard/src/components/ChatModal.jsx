@@ -87,10 +87,10 @@ const ChatModal = ({ isOpen, onClose }) => {
             />
             <button
               type="submit"
-              className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 rounded transition-colors duration-300"
+              className="bg-teal-500 hover:bg-teal-600 text-white cursor-pointer font-bold py-2 rounded transition-colors duration-300"
               disabled={sending || !message.trim()}
             >
-              {sending ? "Sending..." : "Send"}
+              {sending ? "Sending..." : "send"}
             </button>
           </>
         ) : (

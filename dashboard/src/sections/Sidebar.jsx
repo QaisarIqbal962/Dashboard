@@ -4,7 +4,8 @@ import { SiSimpleanalytics } from "react-icons/si";
 import { IoSettingsSharp } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import ChatModal from "../components/ChatModal";
 
 const variants = {
@@ -23,6 +24,27 @@ const Sidebar = () => {
   const [activeNavIndex, setActiveNavIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(true);
   const [chatOpen, setChatOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const confirmLogout = async () => {
+    const result = await Swal.fire({
+      title: "Are you sure you want to log out?",
+      text: "You will be returned to the login page.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, log me out",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#14b8a6",
+      cancelButtonColor: "#6b7280",
+      reverseButtons: true,
+      focusCancel: true,
+    });
+
+    if (result.isConfirmed) {
+      // navigate to /logout which clears auth and redirects to /auth
+      navigate("/logout", { replace: true });
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -124,13 +146,16 @@ const Sidebar = () => {
         </motion.div>
       </div>
 
-      <Link
-        to="/logout"
+      <div
         id="logout-box"
         className="w-full flex flex-col justify-start items-center gap-4 mb-4"
       >
         <div className="bg-gray-700 w-full h-[0.5px]"></div>
-        <div className="flex justify-center items-center gap-2 hover:text-teal-300 transition-all duration-300 cursor-pointer">
+        <button
+          onClick={confirmLogout}
+          className="w-full flex justify-center items-center gap-2 hover:text-teal-300 transition-all duration-300 cursor-pointer bg-transparent border-0"
+          aria-label="Logout"
+        >
           <MdLogout className="text-gray-400 h-6 w-6" />
           <span
             className={
@@ -139,8 +164,8 @@ const Sidebar = () => {
           >
             Logout
           </span>
-        </div>
-      </Link>
+        </button>
+      </div>
       {/* Chat Modal (slide-in) */}
       <ChatModal isOpen={chatOpen} onClose={() => setChatOpen(false)} />
     </motion.section>

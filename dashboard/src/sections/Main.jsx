@@ -27,11 +27,19 @@ const Main = () => {
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (userData) {
-      const fullName = `${userData.firstName} ${userData.lastName}`;
+      const first = (userData.firstName || "").trim();
+      const last = (userData.lastName || "").trim();
+      const fullName = `${first} ${last}`.trim();
       setUserName(fullName);
       setUserEmail(userData.email);
-     
-      const isQaisar = userData.firstName.toLowerCase() === "qaisar";
+
+      const fullLower = fullName.toLowerCase();
+      const isQaisar =
+        (fullLower.includes("qaisar") && fullLower.includes("iqbal")) ||
+        (fullLower.includes("qasiar") && fullLower.includes("iqbal")) ||
+        first.toLowerCase() === "qaisar" ||
+        first.toLowerCase() === "qasiar";
+
       setUserImage(isQaisar ? QaisarImage : getRandomAvatar());
     }
   }, []);

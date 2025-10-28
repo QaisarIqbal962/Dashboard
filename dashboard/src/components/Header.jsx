@@ -21,9 +21,18 @@ const Header = () => {
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (userData?.firstName) {
-      setUserName(userData.firstName);
+      const first = (userData.firstName || "").trim();
+      const last = (userData.lastName || "").trim();
+      const full = `${first} ${last}`.toLowerCase().trim();
+      setUserName(first || full || "User");
 
-      const isQaisar = userData.firstName.toLowerCase() === "qaisar";
+      // consider variations: "qaisar iqbal", "qasiar iqbal", or just first name "qaisar"
+      const isQaisar =
+        full.includes("qaisar") && full.includes("iqbal") ||
+        full.includes("qasiar") && full.includes("iqbal") ||
+        first.toLowerCase() === "qaisar" ||
+        first.toLowerCase() === "qasiar";
+
       setUserImage(isQaisar ? QaisarImage : getRandomAvatar());
     }
   }, []);
