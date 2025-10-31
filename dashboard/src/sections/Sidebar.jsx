@@ -159,7 +159,7 @@ const Sidebar = () => {
           <MdLogout className="text-gray-400 h-6 w-6" />
           <span
             className={
-              "text-gray-300 text-lg " + (isExpanded ? "flex" : "hidden")
+              "text-gray-300 text-lg" + (isExpanded ? "flex" : "hidden")
             }
           >
             Logout

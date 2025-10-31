@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FiTwitter } from "react-icons/fi";
 import QaisarImage from "../assets/images/Qaisar.jpg";
-import client from "../assets/images/client2.jpg"; 
+import client from "../assets/images/client2.jpg";
 import client1 from "../assets/images/client1.jpg";
 import client2 from "../assets/images/client2.jpg";
 import client3 from "../assets/images/client3.jpg";
@@ -15,10 +15,8 @@ const Main = () => {
   const [userEmail, setUserEmail] = useState("user@example.com");
   const [userImage, setUserImage] = useState(client);
 
-
   const avatars = [client1, client2, client3, client4];
 
-  
   const getRandomAvatar = () => {
     const randomIndex = Math.floor(Math.random() * avatars.length);
     return avatars[randomIndex];
@@ -48,8 +46,6 @@ const Main = () => {
     <section className="w-4/5 grow bg-white h-screen overflow-y-auto flex flex-col justify-start items-center gap-2 p-4">
       <Header />
 
-     
-
       <div
         id="main-section"
         className="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full h-screen"
@@ -59,7 +55,6 @@ const Main = () => {
           className="col-span-2 p-2 gap-3 flex flex-col justify-between items-center h-full"
         >
           <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full mb-4">
-        
             <div
               className="w-full flex flex-col justify-center items-center bg-[#1877F2]/20 p-5 rounded-xl gap-5 
               transition-all duration-500 ease-in-out transform hover:scale-105 hover:rotate-[-5deg] hover:shadow-2xl hover:shadow-[#1877F2]/50 cursor-pointer"

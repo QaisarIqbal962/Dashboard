@@ -28,8 +28,8 @@ const Header = () => {
 
       // consider variations: "qaisar iqbal", "qasiar iqbal", or just first name "qaisar"
       const isQaisar =
-        full.includes("qaisar") && full.includes("iqbal") ||
-        full.includes("qasiar") && full.includes("iqbal") ||
+        (full.includes("qaisar") && full.includes("iqbal")) ||
+        (full.includes("qasiar") && full.includes("iqbal")) ||
         first.toLowerCase() === "qaisar" ||
         first.toLowerCase() === "qasiar";
 
